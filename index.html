@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Ganti dengan warna dominan brand kamu jika ada -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- Icons & Manifest -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/icon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicom.png" />
+    <link rel="shortcut icon" href="/icon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icon/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="Annisofie" />
+    <link rel="manifest" href="/icon/site.webmanifest" />
+    <link rel="stylesheet" href="/src/index.css" />
+    <!-- SEO Meta Tags Utama -->
+    <title>
+      Route-Template
+    </title>
+    <meta
+      name="description"
+      content=""
+    />
+    <meta
+      name="keywords"
+      content="Route-Template"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Route-Template" />
+    <link rel="canonical" href="https://Route-Template.netlify.app/" />
+
+    <!-- Open Graph / Facebook / WhatsApp / Instagram Card -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://Route-Template.netlify.app/" />
+    <meta property="og:title" content="Route-Template" />
+    <meta
+      property="og:description"
+      content=""
+    />
+    <meta
+      property="og:image"
+      content="https://Route-Template.netlify.app/favicom.png"
+    />
+    <!-- Buat gambar ukuran 1200x630px di folder public dengan nama og-image.jpg -->
+    <meta property="og:site_name" content="Route-Template" />
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://Route-Template.netlify.app/" />
+    <meta name="twitter:title" content="Route-Template" />
+    <meta
+      name="twitter:description"
+      content=""
+    />
+    <meta
+      name="twitter:image"
+      content="https://Route-Template.netlify.app/favicom.png"
+    />
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        function urlBase64ToUint8Array(base64String) {
+          const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
+          const base64 = (base64String + padding)
+            .replace(/\-/g, "+")
+            .replace(/_/g, "/");
+
+          const rawData = window.atob(base64);
+          const outputArray = new Uint8Array(rawData.length);
+
+          for (let i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+          }
+          return outputArray;
+        }
+
+        function determineAppServerKey() {
+          var vapidPublicKey = "YOUR_PUBLIC_KEY";
+          return urlBase64ToUint8Array(vapidPublicKey);
+        }
+
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("/worker.js")
+            .then(
+              function (registration) {
+                console.log(
+                  "Worker registration successful",
+                  registration.scope,
+                );
+                return registration.pushManager
+                  .getSubscription()
+                  .then(function (subscription) {
+                    registration.pushManager.subscribe({
+                      userVisibleOnly: true,
+                      applicationServerKey: determineAppServerKey(),
+                    });
+                  });
+              },
+              function (err) {
+                console.log("Worker registration failed", err);
+              },
+            )
+            .catch(function (err) {
+              console.log(err);
+            });
+        });
+      } else {
+        console.log("Service Worker is not supported by browser.");
+      }
+    </script>
+
+    <!-- Preconnect ke Google Fonts (Opsional, mempercepat load font) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <noscript>
+      <div
+        style="
+          text-align: center;
+          padding: 30px;
+          font-family: sans-serif;
+          background-color: #f8d7da;
+          color: #721c2585;
+        "
+      >
+        <strong>Oops!</strong> Anda harus mengaktifkan JavaScript di browser
+        Anda untuk Route Template
+      </div>
+    </noscript>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+.cart-checkout-form {
+    background: var(--border);
+    padding: 12px 19px;
+    margin: 12px 19px;
+    border-radius: 12px;
+    display: grid;
+    width: 500px;
+    position: absolute;
+    right: 0;
+}
+
+.cart-checkout-button {
+    gap: 12px;
+    display: grid;
+}
+
+.cart-checkout-form h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.cart-checkout-form input, textarea {
+    background-color: var(--bg);
+    padding: 9px 12px;
+    border-radius: 12px;
+    color: var(--text);
+}
+
+.checkout-actions {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    gap: 12px;
+}
+
+.checkout-actions button {
+    padding: 9px 12px;
+    color: var(--text);
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: none;   
+}
+
+.checkout-submit {
+    background: var(--bg);
+}
+
+.checkout-cancel {
+    background-color: var(--bg);
+}
