@@ -1,17 +1,29 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "./context/ThemeContext";
-import Home from "./pages/Home";
+import { RouterProvider } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { ThemeProvider } from './context/ThemeContext';
+import { AuthProvider } from './context/AuthContext';
+import { router } from './routes';
 
-function App() {
+export default function App() {
   return (
-    <Router>
-      <ThemeProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </ThemeProvider>
-    </Router>
+    <ThemeProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            duration: 3500,
+            style: {
+              background: 'var(--bg-surface)',
+              color: 'var(--text-primary)',
+              border: '1px solid var(--border-color)',
+              boxShadow: 'var(--shadow-md)',
+              fontSize: '0.875rem',
+              borderRadius: '0.5rem',
+            },
+          }}
+        />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
-
-export default App;

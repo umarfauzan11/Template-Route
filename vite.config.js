@@ -1,63 +1,46 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      injectRegister: 'auto',
+      includeAssets: ['favicon.png'],
       manifest: {
-        name: 'Route-Template',
-        short_name: 'Route-Template',
-        description: '',
-        theme_color: '#8D8D8D',
+        name: 'Template Route',
+        short_name: 'TemplateRoute',
+        description: 'Production-ready modern React + Vite routing template',
+        theme_color: '#ff42f2',
         background_color: '#ffffff',
         display: 'standalone',
         start_url: '/',
         scope: '/',
         icons: [
           {
-            src: '/icon/favicon-96x96.png',
-            sizes: '96x96',
-            type: 'image/png',
-            purpose: 'any'
-          },
-          {
-            src: '/icon/apple-touch-icon.png',
-            sizes: '180x180',
-            type: 'image/png',
-            purpose: 'any'
-          },
-          {
-            src: '/favicom.svg',
-            sizes: '512x512',
+            src: '/favicon.png',
+            sizes: '192x192 512x512',
             type: 'image/png',
             purpose: 'any maskable'
           }
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}'],
-        cleanupOutdatedCaches: true,
-        runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/fonts\.(googleapis|gstatic)\.com\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'google-fonts-cache',
-              expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365
-              }
-            }
-          }
-        ]
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}']
       }
     })
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src')
+    }
+  },
   server: {
-    port: 2600,
+    port: 2600
   }
 })
