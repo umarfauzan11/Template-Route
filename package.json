@@ -1,36 +1,55 @@
 {
   "name": "template-route",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Production-ready React 19 + Vite routing template with nested layouts, protected routes, dark mode, and PWA.",
   "type": "module",
   "scripts": {
-    "dev": "vite --open",
-    "build": "vite build",
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
     "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
     "preview": "vite preview"
+  },
+  "keywords": [
+    "react",
+    "react19",
+    "vite",
+    "react-router",
+    "react-router-dom",
+    "routing-template",
+    "starter",
+    "typescript",
+    "dark-mode",
+    "pwa"
+  ],
+  "author": "Umar Fauzan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/umarfauzan11/Template-Route.git"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.101.2",
     "axios": "^1.18.1",
-    "cloudinary": "^2.10.0",
-    "firebase": "^12.16.0",
+    "lucide-react": "^1.44.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-helmet": "^6.1.0",
     "react-hot-toast": "^2.6.0",
     "react-loading-indicators": "^1.0.1",
     "react-router-dom": "^7.18.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "@types/react-helmet": "^6.1.11",
     "@vitejs/plugin-react": "^6.0.3",
     "eslint": "^10.6.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.3",
     "globals": "^17.7.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.70.0",
     "vite": "^8.1.1",
     "vite-plugin-pwa": "^1.3.0"
   }
