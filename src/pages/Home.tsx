@@ -46,9 +46,6 @@ export default function Home() {
     <div className="home-container">
       {/* Hero Section */}
       <section className="hero-section">
-        <div className="hero-badge">
-          <span>Vite + React Router v7 + TypeScript</span>
-        </div>
         <h1 className="hero-title">
           Build Faster with <span className="gradient-text">Template Route</span>
         </h1>

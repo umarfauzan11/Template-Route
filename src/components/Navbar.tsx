@@ -27,7 +27,7 @@ export default function Navbar() {
     <header className="site-header">
       <div className="nav-container">
         <Link to="/" className="brand-logo" onClick={() => setMobileMenuOpen(false)}>
-          <img src="/favicon.png" alt="Template Route Logo" className="brand-logo-img" />
+          <img src="/favicon.svg" alt="Template Route Logo" className="brand-logo-img" />
           <span className="brand-name">Template<span className="text-primary">Route</span></span>
         </Link>
 

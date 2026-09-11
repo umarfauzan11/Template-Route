@@ -37,6 +37,8 @@ export const router = createBrowserRouter([
         path: 'about',
         element: withSuspense(About),
       },
+      // [ADD NEW PUBLIC ROUTE HERE]:
+      // Example: { path: 'dashboard', element: withSuspense(Dashboard) },
       {
         path: 'users',
         element: withSuspense(Users),
@@ -53,6 +55,8 @@ export const router = createBrowserRouter([
             path: 'profile',
             element: withSuspense(Profile),
           },
+          // [ADD NEW PROTECTED ROUTE HERE]:
+          // Example: { path: 'settings', element: withSuspense(Settings) },
         ],
       },
     ],

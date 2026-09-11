@@ -9,7 +9,7 @@ export default function AuthLayout() {
           <ArrowLeft size={16} /> Back to Home
         </Link>
         <div className="auth-brand">
-          <img src="/favicon.png" alt="Template Route" className="brand-logo-img" />
+          <img src="/favicon.svg" alt="Template Route" className="brand-logo-img" />
           <span>TemplateRoute</span>
         </div>
       </div>
